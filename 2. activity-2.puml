@@ -1,0 +1,18 @@
+@startuml
+start
+:receive document;
+:apply all attached
+__processors__ to it;
+
+if (any processing errors?) then (yes)
+  :render **error.tpl**;
+else (no)
+  :render **success.tpl**;
+endif
+:send rendered
+template to user
+via notofication
+system;
+stop
+
+@enduml

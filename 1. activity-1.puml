@@ -1,0 +1,13 @@
+@startuml
+start
+:open upload form;
+:upload required file;
+
+if (Is uploaded file structure correct?) then (yes)
+  :run async processing;
+else (no)
+  :show error for user;
+endif
+stop
+
+@enduml

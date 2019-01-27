@@ -1,0 +1,22 @@
+@startuml
+
+actor User as user
+
+card Application as app {
+    card "Upload\nsystem" as upload
+    card "Processing\nsystem" as processor
+    database Storage as storage
+    collections "Notification\nsystem" as notificator
+    queue Queue as queue
+
+}
+
+user -right-> upload: Upload document
+upload -right-> queue: Create processing task
+queue -down.> processor: Async process
+
+processor -> storage: Write data
+processor -> notificator: Send message back to user
+notificator -left-> user: deliver message
+
+@enduml
