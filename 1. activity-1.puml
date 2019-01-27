@@ -4,7 +4,9 @@ start
 :upload required file;
 
 if (Is uploaded file structure correct?) then (yes)
-  :run async processing;
+  :create task
+  and put it into
+  queue;
 else (no)
   :show error for user;
 endif
