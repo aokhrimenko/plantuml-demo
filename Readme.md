@@ -6,7 +6,7 @@ PlantUML home page: http://plantuml.com/
 # Use cases
 ## Document upload
 As user I want to be able to upload documents via Web form. Document parse result should be available via email notification.
-System should update artifacts storage in case of success. Document processing should run asynchronously therefore user won't wait for profeccing result.
+System should update artifacts storage in case of success. Document processing should run asynchronously therefore user won't wait for processing result.
 
 ## Technical details
 
