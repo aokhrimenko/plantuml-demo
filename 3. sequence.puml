@@ -1,10 +1,12 @@
 @startuml
+
 actor User as user
 control "Upload\nsystem" as upload
 control "Processing\nsystem" as processor
 database Storage as storage
 collections "Notification\nsystem" as notificator
 
+== Upload ==
 user -> upload: Upload document
 upload -> upload: check document structure
 
@@ -15,8 +17,9 @@ else Error
     upload -> user: Show error message
 end
 
-... Background processing ...
+...
 
+== Processing ==
 processor -> processor: Process file
 
 alt Successful case
@@ -25,6 +28,5 @@ alt Successful case
 else Error
     processor -> notificator: Send **error** message
 end
-
 
 @enduml
